@@ -1,38 +1,112 @@
 <!doctype html>
 <html lang="es">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Café Santa Rosa</title>
 </head>
 
-<body>
-  <header>
-    <h1>Café Santa Rosa</h1>
-    <p>Café artesanal y pan recién hecho.</p>
+<body class="pagina-secundaria">
+  <header class="header-cafeteria">
+    <div class="header-top">
+      <div class="header-col header-left">
+        <a href="index.html" class="header-logo-link">
+          <img src="assets/logo.png" alt="Logo Café Santa Rosa" class="header-logo">
+        </a>
+      </div>
+
+      <div class="header-col header-center">
+        <h1 class="logo">Café Santa Rosa</h1>
+      </div>
+
+      <div class="header-col header-right"></div>
+    </div>
 
     <nav>
-        <a href="index.html">Inicio</a>
-        <a href="mision.html">Misión</a>
-        <a href="vision.html">Visión</a>
-        <a href="catalogo.html">Catálogo</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="login.html">Inicio de sesión</a>
+      <a href="index.html">Inicio</a>
+      <a href="mision.html">Misión</a>
+      <a href="vision.html">Visión</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="login.html">Inicio de sesión</a>
     </nav>
+
     <hr />
   </header>
 
 <main>
   <h2>Visión</h2>
-  <p>
-    Ser la cafetería local referente en la zona por calidad, servicio y experiencia,
-    creciendo de forma sostenible y manteniendo un enfoque cercano a la comunidad.
-  </p>
+
+  <section class="info-grid">
+    <div>
+      <p>
+        Posicionarnos como una cafetería referente en la zona por nuestra
+        calidad, servicio y experiencia ofrecida a los clientes.
+      </p>
+    </div>
+
+    <div>
+      <img src="assets/vision.png" alt="Crecimiento de la cafetería" class="pagina-img">
+    </div>
+  </section>
+
+  <section class="vision-detalles">
+    <div class="detalle-card">
+      <h3>Crecimiento</h3>
+      <p>
+        Buscamos crecer como cafetería manteniendo siempre la calidad
+        en nuestros productos y la atención a nuestros clientes.
+      </p>
+    </div>
+
+    <div class="detalle-card">
+      <h3>Innovación</h3>
+      <p>
+        Queremos incorporar nuevas bebidas, postres y experiencias
+        que mantengan la cafetería atractiva y actual.
+      </p>
+    </div>
+
+    <div class="detalle-card">
+      <h3>Identidad</h3>
+      <p>
+        Nuestra visión es consolidarnos como un lugar reconocido
+        por su ambiente, calidad y cercanía con la comunidad.
+      </p>
+    </div>
+  </section>
 </main>
 
   <hr />
-  <footer>
-    <p>2026 Café Santa Rosa</p>
+  <footer class="footer-cafeteria">
+    <div class="footer-seccion footer-contacto">
+      <h3>Contacto</h3>
+      <p>
+        <a href="https://www.google.com/maps" target="_blank">Ubicación</a>
+      </p>
+      <p>Tel: 442 123 4567</p>
+      <p>
+        <a href="mailto:contacto@cafesantarosa.com">contacto@cafesantarosa.com</a>
+      </p>
+    </div>
+
+    <div class="footer-seccion footer-logo">
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Logo Café Santa Rosa" class="logo-footer">
+      </a>
+    </div>
+
+    <div class="footer-seccion footer-redes">
+      <h3>Síguenos</h3>
+      <a href="https://www.facebook.com" target="_blank">
+        <img src="assets/facebook.png" alt="Facebook" class="icono-red">
+      </a>
+      <a href="https://www.instagram.com" target="_blank">
+        <img src="assets/instagram.png" alt="Instagram" class="icono-red">
+      </a>
+    </div>
   </footer>
 </body>
 </html>

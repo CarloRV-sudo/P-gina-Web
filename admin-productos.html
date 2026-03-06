@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/forms.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Administración | Café Santa Rosa</title>
+</head>
+
+<body>
+  <header class="header-cafeteria">
+    <div class="header-top">
+      <div class="header-col header-left">
+        <a href="index.html" class="header-logo-link">
+          <img src="assets/logo.png" alt="Logo Café Santa Rosa" class="header-logo">
+        </a>
+      </div>
+
+      <div class="header-col header-center">
+        <h1 class="logo">Café Santa Rosa</h1>
+      </div>
+
+      <div class="header-col header-right"></div>
+    </div>
+
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="mision.html">Misión</a>
+      <a href="vision.html">Visión</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="login.html">Inicio de sesión</a>
+    </nav>
+
+    <hr />
+  </header>
+
+  <main>
+    <h2>Administración de productos y servicios</h2>
+    <p>
+      Esta página contiene formularios básicos para dar de alta, modificar y eliminar
+      productos/servicios.
+    </p>
+
+    <hr />
+
+    <!-- ALTAS -->
+    <section>
+      <h3>Alta de producto/servicio</h3>
+      <form action="#" method="post">
+        <label for="alta-nombre">Nombre:</label><br />
+        <input type="text" id="alta-nombre" name="alta-nombre" required /><br /><br />
+
+        <label for="alta-categoria">Categoría:</label><br />
+        <select id="alta-categoria" name="alta-categoria" required>
+          <option value="">Selecciona una opción</option>
+          <option value="bebida">Bebida</option>
+          <option value="postre">Pan/Postre</option>
+          <option value="servicio">Servicio</option>
+        </select><br /><br />
+
+        <label for="alta-precio">Precio (MXN):</label><br />
+        <input type="number" id="alta-precio" name="alta-precio" min="0" step="0.01" required /><br /><br />
+
+        <label for="alta-descripcion">Descripción:</label><br />
+        <textarea id="alta-descripcion" name="alta-descripcion" rows="3" required></textarea><br /><br />
+
+        <button type="submit">Guardar</button>
+        <button type="reset">Limpiar</button>
+      </form>
+    </section>
+
+    <hr />
+
+    <!-- MODIFICACIONES -->
+    <section>
+      <h3>Modificar producto/servicio</h3>
+      <form action="#" method="post">
+        <label for="mod-id">ID del producto:</label><br />
+        <input type="text" id="mod-id" name="mod-id" placeholder="Ej: P-001" required /><br /><br />
+
+        <label for="mod-nombre">Nuevo nombre:</label><br />
+        <input type="text" id="mod-nombre" name="mod-nombre" /><br /><br />
+
+        <label for="mod-precio">Nuevo precio (MXN):</label><br />
+        <input type="number" id="mod-precio" name="mod-precio" min="0" step="0.01" /><br /><br />
+
+        <label for="mod-descripcion">Nueva descripción:</label><br />
+        <textarea id="mod-descripcion" name="mod-descripcion" rows="3"></textarea><br /><br />
+
+        <button type="submit">Actualizar</button>
+        <button type="reset">Limpiar</button>
+      </form>
+    </section>
+
+    <hr />
+
+    <!-- ELIMINACIÓN -->
+    <section>
+      <h3>Eliminar producto/servicio</h3>
+      <form action="#" method="post">
+        <label for="del-id">ID del producto a eliminar:</label><br />
+        <input type="text" id="del-id" name="del-id" placeholder="Ej: P-001" required /><br /><br />
+
+        <p><strong>Nota:</strong> Esta acción es solo demostrativa (sin base de datos).</p>
+
+        <button type="submit">Eliminar</button>
+        <button type="reset">Limpiar</button>
+      </form>
+    </section>
+  </main>
+
+  <hr />
+  <footer class="footer-cafeteria">
+    <div class="footer-seccion footer-contacto">
+      <h3>Contacto</h3>
+      <p>
+        <a href="https://www.google.com/maps" target="_blank">Ubicación</a>
+      </p>
+      <p>Tel: 442 123 4567</p>
+      <p>
+        <a href="mailto:contacto@cafesantarosa.com">contacto@cafesantarosa.com</a>
+      </p>
+    </div>
+
+    <div class="footer-seccion footer-logo">
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Logo Café Santa Rosa" class="logo-footer">
+      </a>
+    </div>
+
+    <div class="footer-seccion footer-redes">
+      <h3>Síguenos</h3>
+      <a href="https://www.facebook.com" target="_blank">
+        <img src="assets/facebook.png" alt="Facebook" class="icono-red">
+      </a>
+      <a href="https://www.instagram.com" target="_blank">
+        <img src="assets/instagram.png" alt="Instagram" class="icono-red">
+      </a>
+    </div>
+  </footer>
+</body>
+</html>

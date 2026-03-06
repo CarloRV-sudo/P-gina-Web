@@ -1,64 +1,272 @@
 <!doctype html>
 <html lang="es">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Café Santa Rosa</title>
+  <title>Catálogo | Café Santa Rosa</title>
 </head>
 
-<body>
-  <header>
-    <h1>Café Santa Rosa</h1>
-    <p>Café artesanal y pan recién hecho.</p>
+<body class="pagina-secundaria">
+  <header class="header-cafeteria">
+    <div class="header-top">
+      <div class="header-col header-left">
+        <a href="index.html" class="header-logo-link">
+          <img src="assets/logo.png" alt="Logo Café Santa Rosa" class="header-logo">
+        </a>
+      </div>
+
+      <div class="header-col header-center">
+        <h1 class="logo">Café Santa Rosa</h1>
+      </div>
+
+      <div class="header-col header-right"></div>
+    </div>
 
     <nav>
-        <a href="index.html">Inicio</a>
-        <a href="mision.html">Misión</a>
-        <a href="vision.html">Visión</a>
-        <a href="catalogo.html">Catálogo</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="login.html">Inicio de sesión</a>
+      <a href="index.html">Inicio</a>
+      <a href="mision.html">Misión</a>
+      <a href="vision.html">Visión</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="login.html">Inicio de sesión</a>
     </nav>
+
     <hr />
   </header>
 
-<main>
-  <h2>Catálogo</h2>
+  <main>
+    <h2>Nuestro Catálogo</h2>
+    <p>
+      Conoce nuestros productos disponibles actualmente en la cafetería.
+    </p>
 
-  <section>
-    <h3>Bebidas</h3>
-    <article>
-      <h4>Latte</h4>
-      <p>Café espresso con leche vaporizada.</p>
-      <p><strong>$55 MXN</strong></p>
-    </article>
+    <hr />
 
-    <article>
-      <h4>Cold Brew</h4>
-      <p>Café frío infusionado por horas.</p>
-      <p><strong>$60 MXN</strong></p>
-    </article>
-  </section>
+    <section>
+      <h3>Producto destacado</h3>
 
-  <section>
-    <h3>Pan y postres</h3>
-    <article>
-      <h4>Concha</h4>
-      <p>Pan dulce tradicional.</p>
-      <p><strong>$25 MXN</strong></p>
-    </article>
+      <article class="producto-horizontal destacado">
+        <div class="producto-info">
+          <h4>Latte Vainilla <span class="etiqueta">Más vendido</span></h4>
+          <p>Café espresso con leche vaporizada y toque de vainilla.</p>
 
-    <article>
-      <h4>Pay de limón</h4>
-      <p>Rebanada de pay con base de galleta.</p>
-      <p><strong>$45 MXN</strong></p>
-    </article>
-  </section>
-</main>
+          <ul>
+            <li>Tamaño chico y grande</li>
+            <li>Opción leche deslactosada</li>
+            <li>Disponible caliente o frío</li>
+          </ul>
+
+          <p class="precio">$65 MXN</p>
+        </div>
+
+        <div class="producto-imagen">
+          <img src="assets/latteVainilla.jpg" alt="Latte Vainilla">
+        </div>
+      </article>
+    </section>
+
+    <hr />
+
+    <section>
+      <h3>Bebidas</h3>
+
+      <article class="producto-horizontal">
+        <div class="producto-info">
+          <h4>Americano</h4>
+          <p>Café tradicional recién preparado.</p>
+          <p class="precio">$40 MXN</p>
+        </div>
+
+        <div class="producto-imagen">
+          <img src="assets/cafeAmericano.jpeg" alt="Café Americano">
+        </div>
+      </article>
+
+      <article class="producto-horizontal">
+        <div class="producto-info">
+          <h4>Café Clásico</h4>
+          <p>Café Clásico Mexicano.</p>
+          <p class="precio">$30 MXN</p>
+        </div>
+
+        <div class="producto-imagen">
+          <img src="assets/cafe.jpg" alt="Café Clásico">
+        </div>
+      </article>
+
+      <article class="producto-horizontal">
+        <div class="producto-info">
+          <h4>Cold Brew</h4>
+          <p>Café frío infusionado.</p>
+          <p class="precio">$60 MXN</p>
+        </div>
+
+        <div class="producto-imagen">
+          <img src="assets/coldBrew.jpg" alt="Cold Brew">
+        </div>
+      </article>
+
+      <article class="producto-horizontal">
+        <div class="producto-info">
+          <h4>Capuchino</h4>
+          <p>Espresso con espuma cremosa.</p>
+          <p class="precio">$55 MXN</p>
+        </div>
+
+        <div class="producto-imagen">
+          <img src="assets/capuchino.png" alt="Capuchino">
+        </div>
+      </article>
+    </section>
+
+    <hr />
+
+    <section>
+      <h3>Pan y postres</h3>
+
+      <article class="producto-horizontal">
+        <div class="producto-info">
+          <h4>Concha</h4>
+          <p>Pan dulce tradicional recién horneado.</p>
+          <p class="precio">$25 MXN</p>
+        </div>
+
+        <div class="producto-imagen">
+          <img src="assets/concha.jpg" alt="Concha tradicional">
+        </div>
+      </article>
+
+      <article class="producto-horizontal">
+        <div class="producto-info">
+          <h4>Rebanada de Chocolate</h4>
+          <p>Rebanada de pastel de chocolate.</p>
+          <p class="precio">$50 MXN</p>
+        </div>
+
+        <div class="producto-imagen">
+          <img src="assets/rebanadaChocolate.jpg" alt="Pastel de Chocolate">
+        </div>
+      </article>
+
+      <article class="producto-horizontal">
+        <div class="producto-info">
+          <h4>Pay de limón</h4>
+          <p>Rebanada de pay con base de galleta y relleno cremoso.</p>
+          <p class="precio">$45 MXN</p>
+        </div>
+
+        <div class="producto-imagen">
+          <img src="assets/PLimon.jpg" alt="Pay de limón">
+        </div>
+      </article>
+
+      <article class="producto-horizontal">
+        <div class="producto-info">
+          <h4>Brownie</h4>
+          <p>Brownie de chocolate con nuez.</p>
+          <p class="precio">$35 MXN</p>
+        </div>
+
+        <div class="producto-imagen">
+          <img src="assets/brownie.jpg" alt="Brownie de chocolate">
+        </div>
+      </article>
+    </section>
+
+    <hr />
+
+    <section>
+      <h3>Resumen de precios</h3>
+      <table class="tabla-catalogo">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Café Clásico</td>
+            <td>Bebida</td>
+            <td>$30 MXN</td>
+          </tr>
+          <tr>
+            <td>Latte Vainilla</td>
+            <td>Bebida</td>
+            <td>$65 MXN</td>
+          </tr>
+          <tr>
+            <td>Americano</td>
+            <td>Bebida</td>
+            <td>$40 MXN</td>
+          </tr>
+          <tr>
+            <td>Cold Brew</td>
+            <td>Bebida</td>
+            <td>$60 MXN</td>
+          </tr>
+          <tr>
+            <td>Capuchino</td>
+            <td>Bebida</td>
+            <td>$55 MXN</td>
+          </tr>
+          <tr>
+            <td>Concha</td>
+            <td>Pan</td>
+            <td>$25 MXN</td>
+          </tr>
+          <tr>
+            <td>Rebanada de Chocolate</td>
+            <td>Postre</td>
+            <td>$50 MXN</td>
+          </tr>
+          <tr>
+            <td>Pay de limón</td>
+            <td>Postre</td>
+            <td>$45 MXN</td>
+          </tr>
+          <tr>
+            <td>Brownie</td>
+            <td>Postre</td>
+            <td>$35 MXN</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
 
   <hr />
-  <footer>
-    <p>2026 Café Santa Rosa</p>
+  <footer class="footer-cafeteria">
+    <div class="footer-seccion footer-contacto">
+      <h3>Contacto</h3>
+      <p>
+        <a href="https://www.google.com/maps" target="_blank">Ubicación</a>
+      </p>
+      <p>Tel: 442 123 4567</p>
+      <p>
+        <a href="mailto:contacto@cafesantarosa.com">contacto@cafesantarosa.com</a>
+      </p>
+    </div>
+
+    <div class="footer-seccion footer-logo">
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Logo Café Santa Rosa" class="logo-footer">
+      </a>
+    </div>
+
+    <div class="footer-seccion footer-redes">
+      <h3>Síguenos</h3>
+      <a href="https://www.facebook.com" target="_blank">
+        <img src="assets/facebook.png" alt="Facebook" class="icono-red">
+      </a>
+      <a href="https://www.instagram.com" target="_blank">
+        <img src="assets/instagram.png" alt="Instagram" class="icono-red">
+      </a>
+    </div>
   </footer>
 </body>
 </html>
