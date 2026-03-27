@@ -39,104 +39,13 @@
   </header>
 
   <main>
-    <div id="app-admin">
-      <h2>Administración de productos y servicios</h2>
-      <p>
-        Esta página contiene formularios básicos para dar de alta, modificar y eliminar
-        productos/servicios.
-      </p>
-
-      <hr />
-
-      <section>
-        <h3>Alta de producto/servicio</h3>
-        <form @submit="guardarAlta" @reset="limpiarAlta" novalidate>
-          <label for="alta-nombre">Nombre:</label><br />
-          <input type="text" id="alta-nombre" name="alta-nombre" v-model="alta.nombre" />
-          <small class="mensaje-error" v-if="erroresAlta.nombre">{{ erroresAlta.nombre }}</small>
-          <br /><br />
-
-          <label for="alta-categoria">Categoría:</label><br />
-          <select id="alta-categoria" name="alta-categoria" v-model="alta.categoria">
-            <option value="">Selecciona una opción</option>
-            <option value="bebida">Bebida</option>
-            <option value="postre">Pan/Postre</option>
-            <option value="servicio">Servicio</option>
-          </select>
-          <small class="mensaje-error" v-if="erroresAlta.categoria">{{ erroresAlta.categoria }}</small>
-          <br /><br />
-
-          <label for="alta-precio">Precio (MXN):</label><br />
-          <input type="number" id="alta-precio" name="alta-precio" min="0" step="0.01" v-model="alta.precio" />
-          <small class="mensaje-error" v-if="erroresAlta.precio">{{ erroresAlta.precio }}</small>
-          <br /><br />
-
-          <label for="alta-descripcion">Descripción:</label><br />
-          <textarea id="alta-descripcion" name="alta-descripcion" rows="3" v-model="alta.descripcion"></textarea>
-          <small class="mensaje-error" v-if="erroresAlta.descripcion">{{ erroresAlta.descripcion }}</small>
-          <br /><br />
-
-          <button type="submit">Guardar</button>
-          <button type="reset">Limpiar</button>
-        </form>
-        <p class="mensaje-exito-form" v-if="mensajeAlta">{{ mensajeAlta }}</p>
-      </section>
-
-      <hr />
-
-      <section>
-        <h3>Modificar producto/servicio</h3>
-        <form @submit="guardarModificacion" @reset="limpiarModificacion" novalidate>
-          <label for="mod-id">ID del producto:</label><br />
-          <input type="text" id="mod-id" name="mod-id" placeholder="Ej: P-001" v-model="mod.id" />
-          <small class="mensaje-error" v-if="erroresMod.id">{{ erroresMod.id }}</small>
-          <br /><br />
-
-          <label for="mod-nombre">Nuevo nombre:</label><br />
-          <input type="text" id="mod-nombre" name="mod-nombre" v-model="mod.nombre" />
-          <small class="mensaje-error" v-if="erroresMod.nombre">{{ erroresMod.nombre }}</small>
-          <br /><br />
-
-          <label for="mod-precio">Nuevo precio (MXN):</label><br />
-          <input type="number" id="mod-precio" name="mod-precio" min="0" step="0.01" v-model="mod.precio" />
-          <small class="mensaje-error" v-if="erroresMod.precio">{{ erroresMod.precio }}</small>
-          <br /><br />
-
-          <label for="mod-descripcion">Nueva descripción:</label><br />
-          <textarea id="mod-descripcion" name="mod-descripcion" rows="3" v-model="mod.descripcion"></textarea>
-          <small class="mensaje-error" v-if="erroresMod.descripcion">{{ erroresMod.descripcion }}</small>
-          <br /><br />
-
-          <button type="submit">Actualizar</button>
-          <button type="reset">Limpiar</button>
-        </form>
-        <p class="mensaje-exito-form" v-if="mensajeMod">{{ mensajeMod }}</p>
-      </section>
-
-      <hr />
-
-      <section>
-        <h3>Eliminar producto/servicio</h3>
-        <form @submit="guardarEliminacion" @reset="limpiarEliminacion" novalidate>
-          <label for="del-id">ID del producto a eliminar:</label><br />
-          <input type="text" id="del-id" name="del-id" placeholder="Ej: P-001" v-model="del.id" />
-          <small class="mensaje-error" v-if="erroresDel.id">{{ erroresDel.id }}</small>
-          <br /><br />
-
-          <p><strong>Nota:</strong> Esta acción es solo demostrativa (sin base de datos).</p>
-
-          <button type="submit">Eliminar</button>
-          <button type="reset">Limpiar</button>
-        </form>
-        <p class="mensaje-exito-form" v-if="mensajeDel">{{ mensajeDel }}</p>
-      </section>
-    </div>
+    <div id="app-admin"></div>
   </main>
 
   <hr />
   <footer class="footer-cafeteria">
     <div class="footer-seccion footer-contacto">
-      <h3>Contacto</h3>
+      <h2>Contacto</h2>
       <p>
         <a href="https://www.google.com/maps" target="_blank">Ubicación</a>
       </p>
@@ -153,7 +62,7 @@
     </div>
 
     <div class="footer-seccion footer-redes">
-      <h3>Síguenos</h3>
+      <h2>Síguenos</h2>
       <a href="https://www.facebook.com" target="_blank">
         <img src="assets/facebook.png" alt="Facebook" class="icono-red">
       </a>
@@ -171,6 +80,6 @@
         </a>
       </div>
   </footer>
-  <script src="/JavaScript/admin-productos.js"></script>
+  <script src="JavaScript/admin-productos.js"></script>
 </body>
 </html>

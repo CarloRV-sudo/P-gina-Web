@@ -1,4 +1,4 @@
-const appLogin = Vue.createApp({
+Vue.createApp({
     data() {
         return {
             email: '',
@@ -55,7 +55,8 @@ const appLogin = Vue.createApp({
             this.mensajeExito = 'Inicio de sesión válido.';
         },
 
-        limpiarFormulario() {
+        limpiarFormulario(event) {
+            event.preventDefault();
             this.email = '';
             this.password = '';
             this.mensajeExito = '';
@@ -63,8 +64,61 @@ const appLogin = Vue.createApp({
                 email: '',
                 password: ''
             };
-        }
-    }
-});
+        },
 
-appLogin.mount('#app-login');
+        actualizarEmail(event) {
+            this.email = event.target.value;
+        },
+
+        actualizarPassword(event) {
+            this.password = event.target.value;
+        }
+    },
+
+    render() {
+        return Vue.h('div', {}, [
+            Vue.h(
+                'form',
+                {
+                    novalidate: true,
+                    onSubmit: this.iniciarSesion,
+                    onReset: this.limpiarFormulario
+                },
+                [
+                    Vue.h('label', { for: 'email' }, 'Correo:'),
+                    Vue.h('input', {
+                        type: 'email',
+                        id: 'email',
+                        name: 'email',
+                        placeholder: 'correo@ejemplo.com',
+                        value: this.email,
+                        onInput: this.actualizarEmail
+                    }),
+                    this.errores.email
+                        ? Vue.h('small', { class: 'mensaje-error' }, this.errores.email)
+                        : null,
+
+                    Vue.h('label', { for: 'password' }, 'Contraseña:'),
+                    Vue.h('input', {
+                        type: 'password',
+                        id: 'password',
+                        name: 'password',
+                        placeholder: '********',
+                        value: this.password,
+                        onInput: this.actualizarPassword
+                    }),
+                    this.errores.password
+                        ? Vue.h('small', { class: 'mensaje-error' }, this.errores.password)
+                        : null,
+
+                    Vue.h('button', { type: 'submit' }, 'Entrar'),
+                    Vue.h('button', { type: 'reset' }, 'Limpiar')
+                ]
+            ),
+
+            this.mensajeExito
+                ? Vue.h('p', { class: 'mensaje-exito-form' }, this.mensajeExito)
+                : null
+        ]);
+    }
+}).mount('#app-login');

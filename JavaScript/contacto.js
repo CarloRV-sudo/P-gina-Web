@@ -1,4 +1,4 @@
-const appContacto = Vue.createApp({
+Vue.createApp({
     data() {
         return {
             nombre: '',
@@ -64,12 +64,87 @@ const appContacto = Vue.createApp({
             }
 
             this.mensajeExito = 'Formulario enviado correctamente.';
-
             this.nombre = '';
             this.correo = '';
             this.mensaje = '';
-        }
-    }
-});
+        },
 
-appContacto.mount('#app-contacto');
+        actualizarNombre(event) {
+            this.nombre = event.target.value;
+        },
+
+        actualizarCorreo(event) {
+            this.correo = event.target.value;
+        },
+
+        actualizarMensaje(event) {
+            this.mensaje = event.target.value;
+        }
+    },
+
+    render() {
+        return Vue.h('div', {}, [
+            Vue.h('h3', {}, 'Realiza tu pedido!!'),
+
+            Vue.h(
+                'form',
+                {
+                    novalidate: true,
+                    onSubmit: this.enviarFormulario
+                },
+                [
+                    Vue.h('label', { for: 'nombre' }, 'Nombre:'),
+                    Vue.h('br'),
+                    Vue.h('input', {
+                        id: 'nombre',
+                        name: 'nombre',
+                        type: 'text',
+                        value: this.nombre,
+                        onInput: this.actualizarNombre
+                    }),
+                    this.errores.nombre
+                        ? Vue.h('small', { class: 'mensaje-error' }, this.errores.nombre)
+                        : null,
+                    Vue.h('br'),
+                    Vue.h('br'),
+
+                    Vue.h('label', { for: 'correo' }, 'Correo:'),
+                    Vue.h('br'),
+                    Vue.h('input', {
+                        id: 'correo',
+                        name: 'correo',
+                        type: 'email',
+                        value: this.correo,
+                        onInput: this.actualizarCorreo
+                    }),
+                    this.errores.correo
+                        ? Vue.h('small', { class: 'mensaje-error' }, this.errores.correo)
+                        : null,
+                    Vue.h('br'),
+                    Vue.h('br'),
+
+                    Vue.h('label', { for: 'mensaje' }, 'Mensaje:'),
+                    Vue.h('br'),
+                    Vue.h('textarea', {
+                        id: 'mensaje',
+                        name: 'mensaje',
+                        rows: '4',
+                        value: this.mensaje,
+                        onInput: this.actualizarMensaje
+                    }),
+                    this.errores.mensaje
+                        ? Vue.h('small', { class: 'mensaje-error' }, this.errores.mensaje)
+                        : null,
+                    Vue.h('br'),
+                    Vue.h('br'),
+
+                    Vue.h('button', { type: 'submit' }, 'Enviar')
+                ]
+            ),
+
+            this.mensajeExito
+                ? Vue.h('p', { class: 'mensaje-exito-form' }, this.mensajeExito)
+                : null
+        ]);
+    }
+}).mount('#app-contacto');

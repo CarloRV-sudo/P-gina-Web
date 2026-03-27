@@ -48,32 +48,9 @@
     <p><strong>WhatsApp:</strong> +52 442 000 0000</p>
   </section>
 
-  <section>
-    <div id="app-contacto">
-      <h3>Realiza tu pedido!!</h3>
-
-      <form @submit="enviarFormulario" novalidate>
-        <label for="nombre">Nombre:</label><br />
-        <input id="nombre" name="nombre" type="text" v-model="nombre" />
-        <small class="mensaje-error" v-if="errores.nombre">{{ errores.nombre }}</small>
-        <br /><br />
-
-        <label for="correo">Correo:</label><br />
-        <input id="correo" name="correo" type="email" v-model="correo" />
-        <small class="mensaje-error" v-if="errores.correo">{{ errores.correo }}</small>
-        <br /><br />
-
-        <label for="mensaje">Mensaje:</label><br />
-        <textarea id="mensaje" name="mensaje" rows="4" v-model="mensaje"></textarea>
-        <small class="mensaje-error" v-if="errores.mensaje">{{ errores.mensaje }}</small>
-        <br /><br />
-
-        <button type="submit">Enviar</button>
-      </form>
-
-      <p class="mensaje-exito-form" v-if="mensajeExito">{{ mensajeExito }}</p>
-    </div>
-  </section>
+  <div>
+    <div id="app-contacto"></div>
+  </div>
 </main>
 
 
@@ -116,6 +93,6 @@
       </div>
   </footer>
 
-  <script src="/JavaScript/contacto.js"></script>
+  <script src="JavaScript/contacto.js"></script>
 </body>
 </html>

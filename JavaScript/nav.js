@@ -1,4 +1,4 @@
-const appNav = Vue.createApp({
+Vue.createApp({
     data() {
         return {
             links: [
@@ -11,12 +11,29 @@ const appNav = Vue.createApp({
             ]
         };
     },
+
     methods: {
         navegar(event, href) {
             event.preventDefault();
             window.location.href = href;
         }
-    }
-});
+    },
 
-appNav.mount('#app-nav');
+    render() {
+        return Vue.h(
+            'div',
+            {},
+            this.links.map((link, index) =>
+                Vue.h(
+                    'a',
+                    {
+                        href: link.href,
+                        key: index,
+                        onClick: (event) => this.navegar(event, link.href)
+                    },
+                    link.texto
+                )
+            )
+        );
+    }
+}).mount('#app-nav');

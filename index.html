@@ -26,16 +26,7 @@
     </div>
 
     <nav>
-      <div id="app-nav">
-        <a
-          v-for="(link, index) in links"
-          :key="index"
-          :href="link.href"
-          @click="navegar($event, link.href)"
-        >
-          {{ link.texto }}
-        </a>
-      </div>
+      <div id="app-nav"></div>
     </nav>
 
     <hr />
@@ -57,57 +48,13 @@
     </div>
   </section>
 
-  <section class="inicio-info">
-    <div id="app-info">
+  <div class="inicio-info">
+    <div id="app-info"></div>
+  </div>
 
-      <h2>Sobre Café Santa Rosa</h2>
-
-      <p>
-        {{ textoMostrado }}
-      </p>
-
-      <div style="text-align: center; margin-top: 15px;">
-        <button
-          @click="toggleTexto"
-          class="btn-principal"
-        >
-          {{ verMas ? 'Ver menos' : 'Ver más' }}
-        </button>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="destacados">
-    <div id="app-destacados">
-
-      <h2>Productos destacados</h2>
-
-      <input
-        type="text"
-        v-model="busqueda"
-        placeholder="Buscar producto..."
-        style="margin-bottom: 20px; padding: 8px; width: 100%; border-radius: 6px; border: 1px solid #ccc;"
-      >
-
-      <p style="text-align: center; font-weight: bold; margin-bottom: 20px;">
-        {{ mensajeResultados }}
-      </p>
-
-      <div class="cards-destacados">
-        <article
-          class="card-destacado"
-          v-for="(producto, index) in productosFiltrados"
-          :key="index"
-        >
-          <img :src="producto.imagen" :alt="producto.nombre">
-          <h3>{{ producto.nombre }}</h3>
-          <p>{{ producto.descripcion }}</p>
-        </article>
-      </div>
-
-    </div>
-  </section>
+  <div class="destacados">
+    <div id="app-destacados"></div>
+  </div>
 
   <section class="porque-nosotros">
     <h2>¿Por qué elegirnos?</h2>

@@ -1,4 +1,4 @@
-const appAdmin = Vue.createApp({
+Vue.createApp({
     data() {
         return {
             alta: {
@@ -179,7 +179,8 @@ const appAdmin = Vue.createApp({
             this.mensajeDel = 'Eliminación validada correctamente.';
         },
 
-        limpiarAlta() {
+        limpiarAlta(event) {
+            event.preventDefault();
             this.alta = {
                 nombre: '',
                 categoria: '',
@@ -195,7 +196,8 @@ const appAdmin = Vue.createApp({
             this.mensajeAlta = '';
         },
 
-        limpiarModificacion() {
+        limpiarModificacion(event) {
+            event.preventDefault();
             this.mod = {
                 id: '',
                 nombre: '',
@@ -211,7 +213,8 @@ const appAdmin = Vue.createApp({
             this.mensajeMod = '';
         },
 
-        limpiarEliminacion() {
+        limpiarEliminacion(event) {
+            event.preventDefault();
             this.del = {
                 id: ''
             };
@@ -219,8 +222,270 @@ const appAdmin = Vue.createApp({
                 id: ''
             };
             this.mensajeDel = '';
-        }
-    }
-});
+        },
 
-appAdmin.mount('#app-admin');
+        actualizarAltaNombre(event) {
+            this.alta.nombre = event.target.value;
+        },
+
+        actualizarAltaCategoria(event) {
+            this.alta.categoria = event.target.value;
+        },
+
+        actualizarAltaPrecio(event) {
+            this.alta.precio = event.target.value;
+        },
+
+        actualizarAltaDescripcion(event) {
+            this.alta.descripcion = event.target.value;
+        },
+
+        actualizarModId(event) {
+            this.mod.id = event.target.value;
+        },
+
+        actualizarModNombre(event) {
+            this.mod.nombre = event.target.value;
+        },
+
+        actualizarModPrecio(event) {
+            this.mod.precio = event.target.value;
+        },
+
+        actualizarModDescripcion(event) {
+            this.mod.descripcion = event.target.value;
+        },
+
+        actualizarDelId(event) {
+            this.del.id = event.target.value;
+        }
+    },
+
+    render() {
+        return Vue.h('div', {}, [
+            Vue.h('h2', {}, 'Administración de productos y servicios'),
+            Vue.h(
+                'p',
+                {},
+                'Esta página contiene formularios básicos para dar de alta, modificar y eliminar productos/servicios.'
+            ),
+
+            Vue.h('hr'),
+
+            Vue.h('section', {}, [
+                Vue.h('h3', {}, 'Alta de producto/servicio'),
+                Vue.h(
+                    'form',
+                    {
+                        novalidate: true,
+                        onSubmit: this.guardarAlta,
+                        onReset: this.limpiarAlta
+                    },
+                    [
+                        Vue.h('label', { for: 'alta-nombre' }, 'Nombre:'),
+                        Vue.h('br'),
+                        Vue.h('input', {
+                            type: 'text',
+                            id: 'alta-nombre',
+                            name: 'alta-nombre',
+                            value: this.alta.nombre,
+                            onInput: this.actualizarAltaNombre
+                        }),
+                        this.erroresAlta.nombre
+                            ? Vue.h('small', { class: 'mensaje-error' }, this.erroresAlta.nombre)
+                            : null,
+                        Vue.h('br'),
+                        Vue.h('br'),
+
+                        Vue.h('label', { for: 'alta-categoria' }, 'Categoría:'),
+                        Vue.h('br'),
+                        Vue.h(
+                            'select',
+                            {
+                                id: 'alta-categoria',
+                                name: 'alta-categoria',
+                                value: this.alta.categoria,
+                                onChange: this.actualizarAltaCategoria
+                            },
+                            [
+                                Vue.h('option', { value: '' }, 'Selecciona una opción'),
+                                Vue.h('option', { value: 'bebida' }, 'Bebida'),
+                                Vue.h('option', { value: 'postre' }, 'Pan/Postre'),
+                                Vue.h('option', { value: 'servicio' }, 'Servicio')
+                            ]
+                        ),
+                        this.erroresAlta.categoria
+                            ? Vue.h('small', { class: 'mensaje-error' }, this.erroresAlta.categoria)
+                            : null,
+                        Vue.h('br'),
+                        Vue.h('br'),
+
+                        Vue.h('label', { for: 'alta-precio' }, 'Precio (MXN):'),
+                        Vue.h('br'),
+                        Vue.h('input', {
+                            type: 'number',
+                            id: 'alta-precio',
+                            name: 'alta-precio',
+                            min: '0',
+                            step: '0.01',
+                            value: this.alta.precio,
+                            onInput: this.actualizarAltaPrecio
+                        }),
+                        this.erroresAlta.precio
+                            ? Vue.h('small', { class: 'mensaje-error' }, this.erroresAlta.precio)
+                            : null,
+                        Vue.h('br'),
+                        Vue.h('br'),
+
+                        Vue.h('label', { for: 'alta-descripcion' }, 'Descripción:'),
+                        Vue.h('br'),
+                        Vue.h('textarea', {
+                            id: 'alta-descripcion',
+                            name: 'alta-descripcion',
+                            rows: '3',
+                            value: this.alta.descripcion,
+                            onInput: this.actualizarAltaDescripcion
+                        }),
+                        this.erroresAlta.descripcion
+                            ? Vue.h('small', { class: 'mensaje-error' }, this.erroresAlta.descripcion)
+                            : null,
+                        Vue.h('br'),
+                        Vue.h('br'),
+
+                        Vue.h('button', { type: 'submit' }, 'Guardar'),
+                        Vue.h('button', { type: 'reset' }, 'Limpiar')
+                    ]
+                ),
+                this.mensajeAlta
+                    ? Vue.h('p', { class: 'mensaje-exito-form' }, this.mensajeAlta)
+                    : null
+            ]),
+
+            Vue.h('hr'),
+
+            Vue.h('section', {}, [
+                Vue.h('h3', {}, 'Modificar producto/servicio'),
+                Vue.h(
+                    'form',
+                    {
+                        novalidate: true,
+                        onSubmit: this.guardarModificacion,
+                        onReset: this.limpiarModificacion
+                    },
+                    [
+                        Vue.h('label', { for: 'mod-id' }, 'ID del producto:'),
+                        Vue.h('br'),
+                        Vue.h('input', {
+                            type: 'text',
+                            id: 'mod-id',
+                            name: 'mod-id',
+                            placeholder: 'Ej: P-001',
+                            value: this.mod.id,
+                            onInput: this.actualizarModId
+                        }),
+                        this.erroresMod.id
+                            ? Vue.h('small', { class: 'mensaje-error' }, this.erroresMod.id)
+                            : null,
+                        Vue.h('br'),
+                        Vue.h('br'),
+
+                        Vue.h('label', { for: 'mod-nombre' }, 'Nuevo nombre:'),
+                        Vue.h('br'),
+                        Vue.h('input', {
+                            type: 'text',
+                            id: 'mod-nombre',
+                            name: 'mod-nombre',
+                            value: this.mod.nombre,
+                            onInput: this.actualizarModNombre
+                        }),
+                        this.erroresMod.nombre
+                            ? Vue.h('small', { class: 'mensaje-error' }, this.erroresMod.nombre)
+                            : null,
+                        Vue.h('br'),
+                        Vue.h('br'),
+
+                        Vue.h('label', { for: 'mod-precio' }, 'Nuevo precio (MXN):'),
+                        Vue.h('br'),
+                        Vue.h('input', {
+                            type: 'number',
+                            id: 'mod-precio',
+                            name: 'mod-precio',
+                            min: '0',
+                            step: '0.01',
+                            value: this.mod.precio,
+                            onInput: this.actualizarModPrecio
+                        }),
+                        this.erroresMod.precio
+                            ? Vue.h('small', { class: 'mensaje-error' }, this.erroresMod.precio)
+                            : null,
+                        Vue.h('br'),
+                        Vue.h('br'),
+
+                        Vue.h('label', { for: 'mod-descripcion' }, 'Nueva descripción:'),
+                        Vue.h('br'),
+                        Vue.h('textarea', {
+                            id: 'mod-descripcion',
+                            name: 'mod-descripcion',
+                            rows: '3',
+                            value: this.mod.descripcion,
+                            onInput: this.actualizarModDescripcion
+                        }),
+                        this.erroresMod.descripcion
+                            ? Vue.h('small', { class: 'mensaje-error' }, this.erroresMod.descripcion)
+                            : null,
+                        Vue.h('br'),
+                        Vue.h('br'),
+
+                        Vue.h('button', { type: 'submit' }, 'Actualizar'),
+                        Vue.h('button', { type: 'reset' }, 'Limpiar')
+                    ]
+                ),
+                this.mensajeMod
+                    ? Vue.h('p', { class: 'mensaje-exito-form' }, this.mensajeMod)
+                    : null
+            ]),
+
+            Vue.h('hr'),
+
+            Vue.h('section', {}, [
+                Vue.h('h3', {}, 'Eliminar producto/servicio'),
+                Vue.h(
+                    'form',
+                    {
+                        novalidate: true,
+                        onSubmit: this.guardarEliminacion,
+                        onReset: this.limpiarEliminacion
+                    },
+                    [
+                        Vue.h('label', { for: 'del-id' }, 'ID del producto a eliminar:'),
+                        Vue.h('br'),
+                        Vue.h('input', {
+                            type: 'text',
+                            id: 'del-id',
+                            name: 'del-id',
+                            placeholder: 'Ej: P-001',
+                            value: this.del.id,
+                            onInput: this.actualizarDelId
+                        }),
+                        this.erroresDel.id
+                            ? Vue.h('small', { class: 'mensaje-error' }, this.erroresDel.id)
+                            : null,
+                        Vue.h('br'),
+                        Vue.h('br'),
+
+                        Vue.h('p', {}, [
+                            Vue.h('strong', {}, 'Nota:'),
+                            ' Esta acción es solo demostrativa (sin base de datos).'
+                        ]),
+
+                        Vue.h('button', { type: 'submit' }, 'Eliminar'),
+                        Vue.h('button', { type: 'reset' }, 'Limpiar')
+                    ]
+                ),
+                this.mensajeDel
+                    ? Vue.h('p', { class: 'mensaje-exito-form' }, this.mensajeDel)
+                    : null
+            ])
+        ]);
+    }
+}).mount('#app-admin');
