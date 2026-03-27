@@ -133,5 +133,19 @@ button:hover {
     width: 100%;
     margin-bottom: 10px;
   }
+}
 
+.mensaje-error {
+  display: block;
+  color: #b22222;
+  font-size: 14px;
+  margin-top: 6px;
+  font-weight: bold;
+}
+
+.mensaje-exito-form {
+  color: #2e7d32;
+  font-weight: bold;
+  margin-top: 15px;
+  text-align: center;
 }

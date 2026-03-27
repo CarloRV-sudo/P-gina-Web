@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="CSS/styles.css" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <title>Café Santa Rosa</title>
 </head>
 
@@ -48,19 +49,30 @@
   </section>
 
   <section>
-    <h3>Realiza tu pedido!!</h3>
-    <form>
-      <label for="nombre">Nombre:</label><br />
-      <input id="nombre" name="nombre" type="text" required /><br /><br />
+    <div id="app-contacto">
+      <h3>Realiza tu pedido!!</h3>
 
-      <label for="correo">Correo:</label><br />
-      <input id="correo" name="correo" type="email" required /><br /><br />
+      <form @submit="enviarFormulario" novalidate>
+        <label for="nombre">Nombre:</label><br />
+        <input id="nombre" name="nombre" type="text" v-model="nombre" />
+        <small class="mensaje-error" v-if="errores.nombre">{{ errores.nombre }}</small>
+        <br /><br />
 
-      <label for="mensaje">Mensaje:</label><br />
-      <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br /><br />
+        <label for="correo">Correo:</label><br />
+        <input id="correo" name="correo" type="email" v-model="correo" />
+        <small class="mensaje-error" v-if="errores.correo">{{ errores.correo }}</small>
+        <br /><br />
 
-      <button type="submit">Enviar</button>
-    </form>
+        <label for="mensaje">Mensaje:</label><br />
+        <textarea id="mensaje" name="mensaje" rows="4" v-model="mensaje"></textarea>
+        <small class="mensaje-error" v-if="errores.mensaje">{{ errores.mensaje }}</small>
+        <br /><br />
+
+        <button type="submit">Enviar</button>
+      </form>
+
+      <p class="mensaje-exito-form" v-if="mensajeExito">{{ mensajeExito }}</p>
+    </div>
   </section>
 </main>
 
@@ -103,5 +115,7 @@
         </a>
       </div>
   </footer>
+
+  <script src="/JavaScript/contacto.js"></script>
 </body>
 </html>
