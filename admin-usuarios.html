@@ -1,16 +1,16 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,500;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="CSS/forms.css">
-  <link rel="stylesheet" href="CSS/styles.css" />
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <title>Administración | Café Santa Rosa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <link rel="stylesheet" href="CSS/forms.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administración de Usuarios | Café Santa Rosa</title>
 </head>
 
-<body>
+<body class="pagina-secundaria">
   <header class="header-cafeteria">
     <div class="header-top">
       <div class="header-col header-left">
@@ -27,24 +27,25 @@
     </div>
 
     <nav>
-      <a href="index.html">Inicio</a>
-      <a href="mision.html">Misión</a>
-      <a href="vision.html">Visión</a>
-      <a href="catalogo.html">Catálogo</a>
-      <a href="contacto.html">Contacto</a>
-      <a href="login.html">Inicio de sesión</a>
-      <a href="admin-productos.html">Admin productos</a>
-      <a href="admin-usuarios.html">Admin usuarios</a>
+    <a href="index.html">Inicio</a>
+    <a href="mision.html">Misión</a>
+    <a href="vision.html">Visión</a>
+    <a href="catalogo.html">Catálogo</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="login.html">Inicio de sesión</a>
+    <a href="admin-productos.html">Admin productos</a>
+    <a href="admin-usuarios.html">Admin usuarios</a>
     </nav>
 
-    <hr />
+    <hr>
   </header>
 
   <main>
-    <div id="app-admin"></div>
+    <div id="app-admin-usuarios"></div>
   </main>
 
-  <hr />
+  <hr>
+
   <footer class="footer-cafeteria">
     <div class="footer-seccion footer-contacto">
       <h2>Contacto</h2>
@@ -72,16 +73,8 @@
         <img src="assets/instagram.png" alt="Instagram" class="icono-red">
       </a>
     </div>
-    <div class="validadores-footer">
-        <a href="https://validator.w3.org/nu/?doc=https://carlorv-sudo.github.io/P-gina-Web/admin-productos.html" target="_blank">
-          <img src="assets/html-validator.png" alt="Validar HTML">
-        </a>
-
-        <a href="https://jigsaw.w3.org/css-validator/validator?uri=https://carlorv-sudo.github.io/P-gina-Web/CSS/styles.css" target="_blank">
-          <img src="assets/css-validator.png" alt="Validar CSS">
-        </a>
-      </div>
   </footer>
-  <script src="JavaScript/admin-productos.js?v=2"></script>
+
+  <script src="JavaScript/admin-usuarios.js"></script>
 </body>
 </html>

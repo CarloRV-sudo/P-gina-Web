@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="es">
 <head>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,500;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="CSS/styles.css" />
   <meta charset="utf-8" />
@@ -37,206 +38,7 @@
   </header>
 
   <main>
-    <h2>Nuestro Catálogo</h2>
-    <p>
-      Conoce nuestros productos disponibles actualmente en la cafetería.
-    </p>
-
-    <hr />
-
-    <section>
-      <h3>Producto destacado</h3>
-
-      <article class="producto-horizontal destacado">
-        <div class="producto-info">
-          <h4>Latte Vainilla <span class="etiqueta">Más vendido</span></h4>
-          <p>Café espresso con leche vaporizada y toque de vainilla.</p>
-
-          <ul>
-            <li>Tamaño chico y grande</li>
-            <li>Opción leche deslactosada</li>
-            <li>Disponible caliente o frío</li>
-          </ul>
-
-          <p class="precio">$65 MXN</p>
-        </div>
-
-        <div class="producto-imagen">
-          <img src="assets/latteVainilla.jpg" alt="Latte Vainilla">
-        </div>
-      </article>
-    </section>
-
-    <hr />
-
-    <section>
-      <h3>Bebidas</h3>
-
-      <article class="producto-horizontal">
-        <div class="producto-info">
-          <h4>Americano</h4>
-          <p>Café tradicional recién preparado.</p>
-          <p class="precio">$40 MXN</p>
-        </div>
-
-        <div class="producto-imagen">
-          <img src="assets/cafeAmericano.jpeg" alt="Café Americano">
-        </div>
-      </article>
-
-      <article class="producto-horizontal">
-        <div class="producto-info">
-          <h4>Café Clásico</h4>
-          <p>Café Clásico Mexicano.</p>
-          <p class="precio">$30 MXN</p>
-        </div>
-
-        <div class="producto-imagen">
-          <img src="assets/cafe.jpg" alt="Café Clásico">
-        </div>
-      </article>
-
-      <article class="producto-horizontal">
-        <div class="producto-info">
-          <h4>Cold Brew</h4>
-          <p>Café frío infusionado.</p>
-          <p class="precio">$60 MXN</p>
-        </div>
-
-        <div class="producto-imagen">
-          <img src="assets/coldBrew.jpg" alt="Cold Brew">
-        </div>
-      </article>
-
-      <article class="producto-horizontal">
-        <div class="producto-info">
-          <h4>Capuchino</h4>
-          <p>Espresso con espuma cremosa.</p>
-          <p class="precio">$55 MXN</p>
-        </div>
-
-        <div class="producto-imagen">
-          <img src="assets/capuchino.png" alt="Capuchino">
-        </div>
-      </article>
-    </section>
-
-    <hr />
-
-    <section>
-      <h3>Pan y postres</h3>
-
-      <article class="producto-horizontal">
-        <div class="producto-info">
-          <h4>Concha</h4>
-          <p>Pan dulce tradicional recién horneado.</p>
-          <p class="precio">$25 MXN</p>
-        </div>
-
-        <div class="producto-imagen">
-          <img src="assets/concha.jpg" alt="Concha tradicional">
-        </div>
-      </article>
-
-      <article class="producto-horizontal">
-        <div class="producto-info">
-          <h4>Rebanada de Chocolate</h4>
-          <p>Rebanada de pastel de chocolate.</p>
-          <p class="precio">$50 MXN</p>
-        </div>
-
-        <div class="producto-imagen">
-          <img src="assets/rebanadaChocolate.jpg" alt="Pastel de Chocolate">
-        </div>
-      </article>
-
-      <article class="producto-horizontal">
-        <div class="producto-info">
-          <h4>Pay de limón</h4>
-          <p>Rebanada de pay con base de galleta y relleno cremoso.</p>
-          <p class="precio">$45 MXN</p>
-        </div>
-
-        <div class="producto-imagen">
-          <img src="assets/PLimon.jpg" alt="Pay de limón">
-        </div>
-      </article>
-
-      <article class="producto-horizontal">
-        <div class="producto-info">
-          <h4>Brownie</h4>
-          <p>Brownie de chocolate con nuez.</p>
-          <p class="precio">$35 MXN</p>
-        </div>
-
-        <div class="producto-imagen">
-          <img src="assets/brownie.jpg" alt="Brownie de chocolate">
-        </div>
-      </article>
-    </section>
-
-    <hr />
-
-    <section>
-      <h3>Resumen de precios</h3>
-      <table class="tabla-catalogo">
-        <thead>
-          <tr>
-            <th>Producto</th>
-            <th>Categoría</th>
-            <th>Precio</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Café Clásico</td>
-            <td>Bebida</td>
-            <td>$30 MXN</td>
-          </tr>
-          <tr>
-            <td>Latte Vainilla</td>
-            <td>Bebida</td>
-            <td>$65 MXN</td>
-          </tr>
-          <tr>
-            <td>Americano</td>
-            <td>Bebida</td>
-            <td>$40 MXN</td>
-          </tr>
-          <tr>
-            <td>Cold Brew</td>
-            <td>Bebida</td>
-            <td>$60 MXN</td>
-          </tr>
-          <tr>
-            <td>Capuchino</td>
-            <td>Bebida</td>
-            <td>$55 MXN</td>
-          </tr>
-          <tr>
-            <td>Concha</td>
-            <td>Pan</td>
-            <td>$25 MXN</td>
-          </tr>
-          <tr>
-            <td>Rebanada de Chocolate</td>
-            <td>Postre</td>
-            <td>$50 MXN</td>
-          </tr>
-          <tr>
-            <td>Pay de limón</td>
-            <td>Postre</td>
-            <td>$45 MXN</td>
-          </tr>
-          <tr>
-            <td>Brownie</td>
-            <td>Postre</td>
-            <td>$35 MXN</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
+    <div id="app-catalogo"></div>
   </main>
 
   <hr />
@@ -277,5 +79,6 @@
         </a>
       </div>
   </footer>
+  <script src="JavaScript/catalogo-bd.js"></script>
 </body>
 </html>
