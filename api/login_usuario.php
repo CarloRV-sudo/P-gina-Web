@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 header("Content-Type: application/json; charset=utf-8");
 
 require_once __DIR__ . "/../modelos/Usuario.php";
@@ -16,15 +18,13 @@ try {
         exit;
     }
 
-    $nombre = trim($datos["nombre"] ?? "");
-    $correo = trim($datos["correo"] ?? "");
+    $correo = trim($datos["email"] ?? "");
     $password = trim($datos["password"] ?? "");
-    $idRol = $datos["id_rol"] ?? "";
 
-    if ($nombre === "" || $correo === "" || $password === "" || $idRol === "") {
+    if ($correo === "" || $password === "") {
         echo json_encode([
             "success" => false,
-            "message" => "Todos los campos son obligatorios."
+            "message" => "Correo y contraseña son obligatorios."
         ], JSON_UNESCAPED_UNICODE);
         exit;
     }
@@ -37,34 +37,45 @@ try {
         exit;
     }
 
-    if (strlen($password) < 6) {
+    $usuarioModelo = new Usuario();
+    $usuario = $usuarioModelo->obtenerPorCorreo($correo);
+
+    if (!$usuario) {
         echo json_encode([
             "success" => false,
-            "message" => "La contraseña debe tener al menos 6 caracteres."
+            "message" => "El correo no está registrado."
         ], JSON_UNESCAPED_UNICODE);
         exit;
     }
 
-    $usuario = new Usuario();
-
-    if ($usuario->correoExiste($correo)) {
+    if (!password_verify($password, $usuario["password"])) {
         echo json_encode([
             "success" => false,
-            "message" => "El correo ya está registrado."
+            "message" => "La contraseña es incorrecta."
         ], JSON_UNESCAPED_UNICODE);
         exit;
     }
 
-    $resultado = $usuario->registrar($nombre, $correo, $password, $idRol);
+    $_SESSION["id_usuario"] = $usuario["id_usuario"];
+    $_SESSION["nombre"] = $usuario["nombre"];
+    $_SESSION["correo"] = $usuario["correo"];
+    $_SESSION["id_rol"] = $usuario["id_rol"];
+    $_SESSION["rol"] = $usuario["nombre_rol"];
 
     echo json_encode([
-        "success" => $resultado,
-        "message" => $resultado ? "Usuario registrado correctamente." : "No se pudo registrar el usuario."
+        "success" => true,
+        "message" => "Inicio de sesión correcto.",
+        "usuario" => [
+            "id_usuario" => $usuario["id_usuario"],
+            "nombre" => $usuario["nombre"],
+            "correo" => $usuario["correo"],
+            "rol" => $usuario["nombre_rol"]
+        ]
     ], JSON_UNESCAPED_UNICODE);
 
 } catch (Exception $e) {
     echo json_encode([
         "success" => false,
-        "message" => "No se pudo registrar el usuario. Verifica que el correo no esté registrado previamente."
+        "message" => "Error interno al iniciar sesión."
     ], JSON_UNESCAPED_UNICODE);
 }

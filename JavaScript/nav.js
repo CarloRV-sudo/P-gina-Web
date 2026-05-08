@@ -7,7 +7,9 @@ Vue.createApp({
                 { texto: 'Visión', href: 'vision.html' },
                 { texto: 'Catálogo', href: 'catalogo.html' },
                 { texto: 'Contacto', href: 'contacto.html' },
-                { texto: 'Inicio de sesión', href: 'login.html' }
+                { texto: 'Inicio de sesión', href: 'login.html' },
+                { texto: 'Admin productos', href: 'admin-productos.html' },
+                { texto: 'Admin usuarios', href: 'admin-usuarios.html' }
             ]
         };
     },

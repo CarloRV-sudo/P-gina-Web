@@ -4,6 +4,7 @@ Vue.createApp({
             email: '',
             password: '',
             mensajeExito: '',
+            mensajeError: '',
             errores: {
                 email: '',
                 password: ''
@@ -46,20 +47,50 @@ Vue.createApp({
 
         iniciarSesion(event) {
             event.preventDefault();
+
             this.mensajeExito = '';
+            this.mensajeError = '';
 
             if (!this.validarFormulario()) {
                 return;
             }
 
-            this.mensajeExito = 'Inicio de sesión válido.';
+            fetch('api/login_usuario.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: this.email,
+                    password: this.password
+                })
+            })
+                .then((respuesta) => respuesta.json())
+                .then((datos) => {
+                    if (datos.success) {
+                        this.mensajeExito = datos.message;
+
+                        sessionStorage.setItem('usuario', JSON.stringify(datos.usuario));
+
+                        setTimeout(() => {
+                            window.location.href = 'admin-productos.html';
+                        }, 1000);
+                    } else {
+                        this.mensajeError = datos.message;
+                    }
+                })
+                .catch(() => {
+                    this.mensajeError = 'Error de conexión con el servidor.';
+                });
         },
 
         limpiarFormulario(event) {
             event.preventDefault();
+
             this.email = '';
             this.password = '';
             this.mensajeExito = '';
+            this.mensajeError = '';
             this.errores = {
                 email: '',
                 password: ''
@@ -118,6 +149,10 @@ Vue.createApp({
 
             this.mensajeExito
                 ? Vue.h('p', { class: 'mensaje-exito-form' }, this.mensajeExito)
+                : null,
+
+            this.mensajeError
+                ? Vue.h('p', { class: 'mensaje-error' }, this.mensajeError)
                 : null
         ]);
     }

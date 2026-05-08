@@ -93,13 +93,32 @@ class Usuario {
     public function correoExiste($correo) {
         $sql = "SELECT id_usuario 
                 FROM usuarios 
-                WHERE correo = :correo 
-                AND activo = 1";
+                WHERE correo = :correo";
 
         $stmt = $this->conexion->prepare($sql);
         $stmt->bindParam(":correo", $correo);
         $stmt->execute();
 
         return $stmt->rowCount() > 0;
+    }
+    public function obtenerPorCorreo($correo) {
+        $sql = "SELECT 
+                    u.id_usuario,
+                    u.nombre,
+                    u.correo,
+                    u.password,
+                    u.id_rol,
+                    r.nombre_rol
+                FROM usuarios u
+                INNER JOIN roles r ON u.id_rol = r.id_rol
+                WHERE u.correo = :correo
+                AND u.activo = 1
+                LIMIT 1";
+
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->bindParam(":correo", $correo);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
