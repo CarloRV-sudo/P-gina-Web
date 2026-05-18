@@ -705,3 +705,244 @@ footer {
     letter-spacing: 2px !important;
   }
 }
+
+/* Sesión de usuario */
+
+.nav-contenedor {
+  position: relative;
+  width: 100%;
+}
+
+.nav-links {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.usuario-sesion {
+  position: absolute;
+  top: -95px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.55);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #4B3A2F;
+  font-size: 14px;
+}
+
+.btn-cerrar-sesion {
+  background: #C69C85;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-cerrar-sesion:hover {
+  background: #B3876F;
+}
+
+@media (max-width: 900px) {
+  .usuario-sesion {
+    position: static;
+    margin-top: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .nav-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Bloque de usuario logueado */
+
+.nav-contenedor {
+  position: relative;
+  width: 100%;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.usuario-sesion {
+  position: absolute;
+  top: -130px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.45);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #4B3A2F;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.usuario-sesion span {
+  white-space: nowrap;
+}
+
+.btn-cerrar-sesion {
+  background: #C69C85;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.btn-cerrar-sesion:hover {
+  background: #B3876F;
+}
+
+/* Responsive para usuario logueado */
+@media (max-width: 900px) {
+  .usuario-sesion {
+    position: static;
+    margin: 15px auto 0 auto;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: fit-content;
+  }
+
+  .nav-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.header-cafeteria {
+  position: relative;
+}
+
+.nav-contenedor {
+  position: static;
+  width: 100%;
+}
+
+.nav-links {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.usuario-sesion {
+  position: absolute;
+  top: 18px;
+  right: 35px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.55);
+  padding: 7px 10px;
+  border-radius: 8px;
+  color: #4B3A2F;
+  font-size: 13px;
+  font-weight: bold;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.usuario-sesion span {
+  white-space: nowrap;
+}
+
+.btn-cerrar-sesion {
+  background: #C69C85;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.btn-cerrar-sesion:hover {
+  background: #B3876F;
+}
+
+@media (max-width: 900px) {
+  .usuario-sesion {
+    position: static;
+    margin: 15px auto 0 auto;
+    justify-content: center;
+    width: fit-content;
+    flex-wrap: wrap;
+  }
+
+  .nav-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+.usuario-sesion-fijo {
+  position: fixed;
+  top: 12px;
+  right: 18px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.88);
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: #4B3A2F;
+  font-size: 13px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+
+.usuario-sesion-fijo span {
+  white-space: nowrap;
+}
+
+.btn-cerrar-sesion {
+  background: #C69C85;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  padding: 7px 11px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.btn-cerrar-sesion:hover {
+  background: #B3876F;
+}
+
+@media (max-width: 700px) {
+  .usuario-sesion-fijo {
+    position: static;
+    margin: 10px auto;
+    width: fit-content;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
